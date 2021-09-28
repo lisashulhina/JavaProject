@@ -17,13 +17,26 @@ public class CSVReaderAndValidation {
      */
     public ArrayList<Item> readCSV(String filePath) throws IOException {
         ArrayList<Item> list = new ArrayList<>();
+
+        //count lines
         int fileLines = lineCounter(filePath);
+
+        // open CVS file reader
         CSVReader csvReader = new CSVReader(new FileReader(filePath));
+
+        // creating list of string for header
         String[] header = csvReader.readNext();
+        // trimming and lowering each element  of the list
         stringArrayTrimmingLowerCasing(header);
+
         for (int i = 0; i < fileLines - 1; i++) {
+
+            // creating list of string for each line
             String[] line = csvReader.readNext();
+            // trimming and lowering each element  of the list
             stringArrayTrimmingLowerCasing(line);
+
+            //adding elements to the list of items
             list.add(new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("itemNumber".toLowerCase(Locale.ROOT)))),
                     Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("quantity".toLowerCase(Locale.ROOT)))),
                     Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("binNumber".toLowerCase(Locale.ROOT)))),
