@@ -1,6 +1,6 @@
-itemNumber,quantity,binNumber,inStock,name,price
-1, 1, 1, true, "Dell Desktop D", 300.25
-10, 2, 1, true, "Laptop A", 449.99
-3, 0, 2, false, "iPhone", 1100.00
-5, 5, 2, true, "Ipad", 700.00
-7, 3, 1, true, "MacBook", 1700.00
+itemNumber,quantity,binNumber,price,inStock,name
+1, 1, 1, 300.25, true, "Dell Desktop D"
+10, 2, 1, 449.99, true, "Laptop A"
+3, 0, 2, 1100.00, false, "iPhone"
+5, 5, 2, 700.00, true, "Ipad"
+7, 3, 1, 1700.00, true, "MacBook"

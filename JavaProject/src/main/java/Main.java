@@ -7,7 +7,7 @@ public class Main {
         ArrayList<Item> list = new ArrayList<>();
         CSVReaderAndValidation csvReaderAndValidation = new CSVReaderAndValidation();
         try {
-            list = csvReaderAndValidation.readCSV("/your/absolute/filePathhere/Items.csv");
+            list = csvReaderAndValidation.readCSV("/yourAbsoluteFilePathHere/Items.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
