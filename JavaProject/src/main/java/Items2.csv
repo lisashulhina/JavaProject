@@ -1,0 +1,7 @@
+name, price, itemNumber, quantity, binNumber, inStock
+item_name, 20.00, 1, 40, 3, true
+item_name, 15.00, 17, 5, 8, false
+item_name, 5.00, 3, 80, 20, true
+item_name, 23.00, 2, 40, 3, true
+item_name, 12.00, 4, 5, 8, false
+item_name, 2.00, 10, 80, 20, true
