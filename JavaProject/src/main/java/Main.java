@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ArrayList<Item> list = new ArrayList<>();
         CSVReaderAndValidation csvReaderAndValidation = new CSVReaderAndValidation();
         try {
@@ -22,10 +22,9 @@ public class Main {
     }
 
     /* A utility function to print an ArrayList of Items */
-    static void printArray(ArrayList<Item> arr)
-    {
-        for (Item item : arr){
-            System.out.print(item.getItemNumber() +" ");
+    static void printArray(ArrayList<Item> arr) {
+        for (Item item : arr) {
+            System.out.print(item.getItemNumber() + " ");
         }
         System.out.println();
     }

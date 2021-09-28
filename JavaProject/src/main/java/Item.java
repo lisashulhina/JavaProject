@@ -1,5 +1,4 @@
-public class Item
-{
+public class Item {
     private final int itemNumber;
     private final int quantity;
     private final int binNumber;
@@ -8,8 +7,7 @@ public class Item
     private final double price;
 
     // constructor
-    public Item(int itemNumber, int quantity, int binNumber, boolean inStock, String name, double price)
-    {
+    public Item(int itemNumber, int quantity, int binNumber, boolean inStock, String name, double price) {
         this.itemNumber = itemNumber;
         this.quantity = quantity;
         this.binNumber = binNumber;
@@ -18,33 +16,27 @@ public class Item
         this.price = price;
     }
 
-    public int getItemNumber()
-    {
+    public int getItemNumber() {
         return itemNumber;
     }
 
-    public int getQuantity()
-    {
+    public int getQuantity() {
         return quantity;
     }
 
-    public int getBinNumber()
-    {
+    public int getBinNumber() {
         return binNumber;
     }
 
-    public boolean getInStock()
-    {
+    public boolean getInStock() {
         return inStock;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public double getPrice()
-    {
+    public double getPrice() {
         return price;
     }
 }

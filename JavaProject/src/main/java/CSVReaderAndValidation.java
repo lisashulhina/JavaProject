@@ -11,7 +11,8 @@ public class CSVReaderAndValidation {
 
     /**
      * reads CSV file and returns list of items from it
-     * @param filePath  file absolute path
+     *
+     * @param filePath file absolute path
      * @return list of Items
      * @throws IOException thrown if file not found
      */
