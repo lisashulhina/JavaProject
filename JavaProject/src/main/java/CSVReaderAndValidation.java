@@ -9,6 +9,12 @@ import java.util.Locale;
 
 public class CSVReaderAndValidation {
 
+    /**
+     * reads CSV file and returns list of items from it
+     * @param filePath  file absolute path
+     * @return list of Items
+     * @throws IOException thrown if file not found
+     */
     public ArrayList<Item> readCSV(String filePath) throws IOException {
         ArrayList<Item> list = new ArrayList<>();
         int fileLines = lineCounter(filePath);
@@ -28,6 +34,13 @@ public class CSVReaderAndValidation {
         return list;
     }
 
+    /**
+     * counts number of lines in file
+     *
+     * @param filePath file absolute path
+     * @return number of lines in file
+     * @throws IOException thrown if file not found
+     */
     static int lineCounter(String filePath) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
         int fileLines = 0;
@@ -37,6 +50,11 @@ public class CSVReaderAndValidation {
         return fileLines;
     }
 
+    /**
+     * trimps and lowers each string in string array
+     *
+     * @param arr input array
+     */
     static void stringArrayTrimmingLowerCasing(String[] arr) {
         for (int j = 0; j < arr.length; j++) {
             arr[j] = arr[j].trim().toLowerCase(Locale.ROOT);
