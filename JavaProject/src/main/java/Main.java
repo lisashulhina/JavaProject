@@ -3,10 +3,14 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        ArrayList<Item> list = new ArrayList<Item>();
+    public static void main(String[] args){
+        ArrayList<Item> list = new ArrayList<>();
         CSVReaderAndValidation csvReaderAndValidation = new CSVReaderAndValidation();
-        list = csvReaderAndValidation.readCSV("/Users/liza/IdeaProjects/JavaProject/src/main/java/Items.csv");
+        try {
+            list = csvReaderAndValidation.readCSV("/your/absolute/filePathhere/Items.csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         printArray(list);
 

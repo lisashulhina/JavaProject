@@ -10,14 +10,14 @@ import java.util.Locale;
 public class CSVReaderAndValidation {
 
     public ArrayList<Item> readCSV(String filePath) throws IOException {
-        ArrayList<Item> list = new ArrayList<Item>();
+        ArrayList<Item> list = new ArrayList<>();
         int fileLines = lineCounter(filePath);
         CSVReader csvReader = new CSVReader(new FileReader(filePath));
         String[] header = csvReader.readNext();
-        header = stringArrayTrimmingLowerCasing(header);
+        stringArrayTrimmingLowerCasing(header);
         for (int i = 0; i < fileLines - 1; i++) {
             String[] line = csvReader.readNext();
-            line = stringArrayTrimmingLowerCasing(line);
+            stringArrayTrimmingLowerCasing(line);
             list.add(new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("itemNumber".toLowerCase(Locale.ROOT)))),
                     Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("quantity".toLowerCase(Locale.ROOT)))),
                     Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("binNumber".toLowerCase(Locale.ROOT)))),
@@ -37,10 +37,9 @@ public class CSVReaderAndValidation {
         return fileLines;
     }
 
-    static String[] stringArrayTrimmingLowerCasing(String[] arr) {
+    static void stringArrayTrimmingLowerCasing(String[] arr) {
         for (int j = 0; j < arr.length; j++) {
             arr[j] = arr[j].trim().toLowerCase(Locale.ROOT);
         }
-        return arr;
     }
 }
