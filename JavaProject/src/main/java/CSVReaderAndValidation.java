@@ -54,13 +54,14 @@ public class CSVReaderAndValidation {
                     System.out.println("Error occurred. Probably of input mismatching. Message: " + e.getMessage() + "\n");
                 }
 
-                Scanner sc = new Scanner(System.in);  // Create a Scanner object
+                Scanner sc = new Scanner(System.in);
                 System.out.println("Would you like to continue?");
-                System.out.println("N/No for no, any other to exit a program.");
+                System.out.println("N/No for no, any other to continue.");
                 String wantToContinue = sc.nextLine();
                 if (wantToContinue.toLowerCase(Locale.ROOT).equals("no") || wantToContinue.toLowerCase(Locale.ROOT).equals("n")){
                     System.exit(0);
                 }
+                sc.close();
             }
         }
         return list;
