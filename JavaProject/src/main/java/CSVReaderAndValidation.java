@@ -38,12 +38,21 @@ public class CSVReaderAndValidation {
             stringArrayTrimmingLowerCasing(line);
 
             //adding elements to the list of items
-            list.add(new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("itemNumber".toLowerCase(Locale.ROOT)))),
-                    Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("quantity".toLowerCase(Locale.ROOT)))),
-                    Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("binNumber".toLowerCase(Locale.ROOT)))),
-                    Boolean.parseBoolean(Arrays.asList(line).get(Arrays.asList(header).indexOf("inStock".toLowerCase(Locale.ROOT))))
-                    , Arrays.asList(line).get(Arrays.asList(header).indexOf("name".toLowerCase(Locale.ROOT)))
-                    , Double.parseDouble(Arrays.asList(line).get(Arrays.asList(header).indexOf("price".toLowerCase(Locale.ROOT))))));
+            try {
+                list.add(new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("itemNumber".toLowerCase(Locale.ROOT)))),
+                        Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("quantity".toLowerCase(Locale.ROOT)))),
+                        Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("binNumber".toLowerCase(Locale.ROOT)))),
+                        Boolean.parseBoolean(Arrays.asList(line).get(Arrays.asList(header).indexOf("inStock".toLowerCase(Locale.ROOT))))
+                        , Arrays.asList(line).get(Arrays.asList(header).indexOf("name".toLowerCase(Locale.ROOT)))
+                        , Double.parseDouble(Arrays.asList(line).get(Arrays.asList(header).indexOf("price".toLowerCase(Locale.ROOT))))));
+            } catch (Exception e) {
+                System.out.println("Record " + (i + 1) + " is not in valid format and it was dropped from list.");
+                if (line.length != 6) {
+                    System.out.println("Expected number of record in line: 6\nGiven number of record in line: " + line.length + "\n");
+                } else {
+                    System.out.println("Error occurred. Probably of input mismatching. Message:" + e.getMessage());
+                }
+            }
         }
         return list;
     }
@@ -65,7 +74,7 @@ public class CSVReaderAndValidation {
     }
 
     /**
-     * trimps and lowers each string in string array
+     * trims and lowers each string in string array
      *
      * @param arr input array
      */

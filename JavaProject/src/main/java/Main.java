@@ -9,7 +9,7 @@ public class Main {
         try {
             list = csvReaderAndValidation.readCSV("/yourAbsoluteFilePathHere/Items.csv");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error occurred. Message: " + e.getMessage());
         }
 
         printArray(list);
