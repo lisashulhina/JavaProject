@@ -56,6 +56,7 @@ public class CSVReaderAndValidation {
 
                 Scanner sc = new Scanner(System.in);  // Create a Scanner object
                 System.out.println("Would you like to continue?");
+                System.out.println("N/No for no, any other to exit a program.");
                 String wantToContinue = sc.nextLine();
                 if (wantToContinue.toLowerCase(Locale.ROOT).equals("no") || wantToContinue.toLowerCase(Locale.ROOT).equals("n")){
                     System.exit(0);

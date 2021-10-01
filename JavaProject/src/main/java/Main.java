@@ -7,7 +7,7 @@ public class Main {
         ArrayList<Item> list = new ArrayList<>();
         CSVReaderAndValidation csvReaderAndValidation = new CSVReaderAndValidation();
         try {
-            list = csvReaderAndValidation.readCSV("/yourAbsoluteFilePathHere/Items.csv");
+            list = csvReaderAndValidation.readCSV("/Users/liza/IdeaProjects/JavaProject2/JavaProject/src/main/java/Items.csv");
         } catch (IOException e) {
             System.out.println("Error occurred. Message: " + e.getMessage());
         }
