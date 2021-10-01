@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class CSVReaderAndValidation {
 
@@ -50,7 +51,14 @@ public class CSVReaderAndValidation {
                 if (line.length != 6) {
                     System.out.println("Expected number of record in line: 6\nGiven number of record in line: " + line.length + "\n");
                 } else {
-                    System.out.println("Error occurred. Probably of input mismatching. Message:" + e.getMessage());
+                    System.out.println("Error occurred. Probably of input mismatching. Message: " + e.getMessage() + "\n");
+                }
+
+                Scanner sc = new Scanner(System.in);  // Create a Scanner object
+                System.out.println("Would you like to continue?");
+                String wantToContinue = sc.nextLine();
+                if (wantToContinue.toLowerCase(Locale.ROOT).equals("no") || wantToContinue.toLowerCase(Locale.ROOT).equals("n")){
+                    System.exit(0);
                 }
             }
         }
