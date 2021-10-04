@@ -1,7 +1,16 @@
-name, price, item_number,quantity,bin_num,in_stock
-item_name, 20.00, 1, 40, 3, true
-item_name, 15.00, 17, 5, 8, false
-item_name, 5.00, 3, 80, 20, true
-item_name, 23.00, 2, 40, 3, true
-item_name, 12.00, 4, 5, 8, false
-item_name, 2.00, 10, 80, 20, true
+item_number,quantity,bin_num,in_stock,name,price
+56,18,2,true,Apple Macbook Pro M1 16in,2399.00
+13,15,7,true,Microsoft Surface Go 2,649.99
+25,0,0,false,Dell XPS 13,720.00
+49,9,1,true,Dell Inspiron 15,1249.00
+65,12,3,true,Dell Latitude 5400,609.00
+3,5,9,true,Lenovo Yoga 9i,1299.99
+53,0,0,false,Lenovo ThinkPad X1, 1229.40
+82,9,4,true,Apple Macbook Pro M1 13in,1299.00
+9,16,5,true,Razer Blade 15,2699.99
+40,5,8,true,Alienware m15 R4,2099.99
+31,6,10,true,ASUS ROG Zephyrus 14,1549.99
+78,2,12,true,HP OMEN,1499.99
+17,7,11,true,Dell Inspiron 7000,999.99
+61,9,16,true,Microsoft Surface Laptop Studio,1599.99
+47,12,15,true,Microsoft Surface Pro 7,699.99
