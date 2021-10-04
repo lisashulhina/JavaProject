@@ -1,6 +1,8 @@
-itemNumber,quantity,binNumber,price,inStock,name
+item_number,quantity,bin_num,price, in_stock,name
 1, 1, 1, 300.25, true, Dell Desktop D
-10, 2, false, 449.99, true, Laptop A
-3, 0, 2, 1100.00, false,      iPhone
-5, 5, 2, 700.00, true, Ipad
-7, 3, 1, 1700.00, true, MacBook
+10, 2, 2, 449.99, true, Laptop A
+3, 0, 3, 1100.00, false,      iPhone
+5, false, 4, 700.00, true, Ipad
+7, 3, 5, 1700.00, true, MacBook
+22, 4, 6, 1300.20, true, Laptop B
+12, 1, 7, 740.26, true, Laptop C

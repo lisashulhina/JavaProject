@@ -40,10 +40,10 @@ public class CSVReaderAndValidation {
 
             //adding elements to the list of items
             try {
-                list.add(new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("itemNumber".toLowerCase(Locale.ROOT)))),
+                list.add(new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("item_number".toLowerCase(Locale.ROOT)))),
                         Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("quantity".toLowerCase(Locale.ROOT)))),
-                        Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("binNumber".toLowerCase(Locale.ROOT)))),
-                        Boolean.parseBoolean(Arrays.asList(line).get(Arrays.asList(header).indexOf("inStock".toLowerCase(Locale.ROOT))))
+                        Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("bin_num".toLowerCase(Locale.ROOT)))),
+                        Boolean.parseBoolean(Arrays.asList(line).get(Arrays.asList(header).indexOf("in_stock".toLowerCase(Locale.ROOT))))
                         , Arrays.asList(line).get(Arrays.asList(header).indexOf("name".toLowerCase(Locale.ROOT)))
                         , Double.parseDouble(Arrays.asList(line).get(Arrays.asList(header).indexOf("price".toLowerCase(Locale.ROOT))))));
             } catch (Exception e) {
@@ -58,10 +58,9 @@ public class CSVReaderAndValidation {
                 System.out.println("Would you like to continue?");
                 System.out.println("N/No for no, any other to continue.");
                 String wantToContinue = sc.nextLine();
-                if (wantToContinue.toLowerCase(Locale.ROOT).equals("no") || wantToContinue.toLowerCase(Locale.ROOT).equals("n")){
+                if (wantToContinue.toLowerCase(Locale.ROOT).equals("no") || wantToContinue.toLowerCase(Locale.ROOT).equals("n")) {
                     System.exit(0);
                 }
-                sc.close();
             }
         }
         return list;
@@ -74,7 +73,7 @@ public class CSVReaderAndValidation {
      * @return number of lines in file
      * @throws IOException thrown if file not found
      */
-    static int lineCounter(String filePath) throws IOException {
+    int lineCounter(String filePath) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
         int fileLines = 0;
         while ((bufferedReader.readLine()) != null) {
@@ -88,7 +87,7 @@ public class CSVReaderAndValidation {
      *
      * @param arr input array
      */
-    static void stringArrayTrimmingLowerCasing(String[] arr) {
+    void stringArrayTrimmingLowerCasing(String[] arr) {
         for (int j = 0; j < arr.length; j++) {
             arr[j] = arr[j].trim().toLowerCase(Locale.ROOT);
         }

@@ -1,4 +1,4 @@
-name, price, itemNumber, quantity, binNumber, inStock
+name, price, item_number,quantity,bin_num,in_stock
 item_name, 20.00, 1, 40, 3, true
 item_name, 15.00, 17, 5, 8, false
 item_name, 5.00, 3, 80, 20, true

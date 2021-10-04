@@ -5,18 +5,20 @@ public class Main {
 
     public static void main(String[] args) {
         ArrayList<Item> list = new ArrayList<>();
-        CSVReaderAndValidation csvReaderAndValidation = new CSVReaderAndValidation();
         try {
+            CSVReaderAndValidation csvReaderAndValidation = new CSVReaderAndValidation();
             list = csvReaderAndValidation.readCSV("/Users/liza/IdeaProjects/JavaProject2/JavaProject/src/main/java/Items.csv");
         } catch (IOException e) {
             System.out.println("Error occurred. Message: " + e.getMessage());
         }
 
+        System.out.println("Original list:");
         printArray(list);
 
         QuickSort obj = new QuickSort();
         obj.sort(list);
 
+        System.out.println("Sorted list:");
         printArray(list);
 
     }
