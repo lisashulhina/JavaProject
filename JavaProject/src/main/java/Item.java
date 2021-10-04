@@ -39,4 +39,16 @@ public class Item {
     public double getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemNumber=" + itemNumber +
+                ", quantity=" + quantity +
+                ", binNumber=" + binNumber +
+                ", inStock=" + inStock +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
