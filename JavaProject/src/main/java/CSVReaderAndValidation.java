@@ -40,7 +40,8 @@ public class CSVReaderAndValidation {
 
             //adding elements to the list of items
             try {
-                list.add(new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("item_number".toLowerCase(Locale.ROOT)))),
+                list.add(
+                        new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("item_number".toLowerCase(Locale.ROOT)))),
                         Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("quantity".toLowerCase(Locale.ROOT)))),
                         Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("bin_num".toLowerCase(Locale.ROOT)))),
                         Boolean.parseBoolean(Arrays.asList(line).get(Arrays.asList(header).indexOf("in_stock".toLowerCase(Locale.ROOT))))
