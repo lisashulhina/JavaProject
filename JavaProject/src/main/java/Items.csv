@@ -4,5 +4,5 @@ item_number,quantity,bin_num,price, in_stock,name
 3, 0, 3, 1100.00, false,      iPhone
 5, false, 4, 700.00, true, Ipad
 7, 3, 5, 1700.00, true, MacBook
-22, 4, 6, 1300.20, true, Laptop B
+22, 4, 6, 1300.20, true
 12, 1, 7, 740.26, true, Laptop C

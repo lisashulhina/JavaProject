@@ -40,6 +40,7 @@ public class Item {
         return price;
     }
 
+    // in case we need to print Item on console
     @Override
     public String toString() {
         return "Item{" +

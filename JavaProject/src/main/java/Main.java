@@ -1,35 +1,91 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Item> list = new ArrayList<>();
-        try {
-            CSVReaderAndValidation csvReaderAndValidation = new CSVReaderAndValidation();
-            list = csvReaderAndValidation.readCSV("/Users/liza/IdeaProjects/JavaProject2/JavaProject/src/main/java/Items2.csv");
-        } catch (IOException e) {
-            System.out.println("Error occurred. Message: " + e.getMessage());
+        Scanner sc = new Scanner(System.in);
+        boolean flag = true;
+
+        while (flag) {
+            try {
+                ArrayList<Item> list;
+
+                // reads user input
+                System.out.println("\nPlease enter absolute file path on your own computer for file for what you want to proceed:");
+                String inputFilePath = sc.nextLine();
+
+                // reads file
+                CSVReaderAndValidation csvReaderAndValidation = new CSVReaderAndValidation();
+                list = csvReaderAndValidation.readCSV(inputFilePath);
+
+                // prints original list
+                System.out.println("Original list:");
+                printArrayItemNumber(list);
+                // printArrayItem(list); // if you want each item attribute to be printed uncomment this code
+
+                // does QuickSort
+                QuickSort obj = new QuickSort();
+                obj.sort(list);
+
+                // prints sorted list
+                System.out.println("\nSorted list:");
+                printArrayItemNumber(list);
+                // printArrayItem(list); // if you want each item attribute to be printed uncomment this code
+
+                // asking if more than 1 file wanted to be proceed
+                System.out.println("\nDo you want to enter another file? ");
+                flag = tryAgain(sc, flag);
+
+            } catch (IOException e) {
+                System.out.println("Error occurred. Message: " + e.getMessage());
+                System.out.println("Do you want to try input again?");
+
+                flag = tryAgain(sc, flag);
+            }
+
         }
-
-        System.out.println("Original list:");
-        printArray(list);
-
-        QuickSort obj = new QuickSort();
-        obj.sort(list);
-
-        System.out.println("Sorted list:");
-        printArray(list);
-
     }
 
-    /* A utility function to print an ArrayList of Items */
-    static void printArray(ArrayList<Item> arr) {
+    /**
+     * asks the user if he/she wants to continue and returns the answer as flag
+     *
+     * @param sc   scanner for user answer
+     * @param flag to stop or continue the loop
+     * @return flag to stop or continue the loop
+     */
+    static boolean tryAgain(Scanner sc, boolean flag) {
+        System.out.println("N/No for no, any other to continue.");
+        String wantToContinue = sc.nextLine();
+        if (wantToContinue.toLowerCase(Locale.ROOT).equals("no") || wantToContinue.toLowerCase(Locale.ROOT).equals("n")) {
+            flag = false;
+        }
+        return flag;
+    }
+
+
+    /**
+     * prints an ItemNumber of each element of ArrayList of Items
+     *
+     * @param arr array to be printed
+     */
+    static void printArrayItemNumber(ArrayList<Item> arr) {
         for (Item item : arr) {
             System.out.print(item.getItemNumber() + " ");
         }
-        System.out.println();
     }
 
+    /**
+     * prints an ItemNumber of each element of ArrayList of Items
+     *
+     * @param arr array to be printed
+     */
+    static void printArrayItem(ArrayList<Item> arr) {
+        for (Item item : arr) {
+            System.out.print(item + "\n");
+        }
+    }
 
 }

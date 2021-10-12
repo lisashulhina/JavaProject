@@ -29,14 +29,14 @@ public class CSVReaderAndValidation {
         // creating list of string for header
         String[] header = csvReader.readNext();
         // trimming and lowering each element  of the list
-        stringArrayTrimmingLowerCasing(header);
+        header = stringArrayTrimmingLowerCasing(header);
 
         for (int i = 0; i < fileLines - 1; i++) {
 
             // creating list of string for each line
             String[] line = csvReader.readNext();
             // trimming and lowering each element  of the list
-            stringArrayTrimmingLowerCasing(line);
+            line = stringArrayTrimmingLowerCasing(line);
 
             //adding elements to the list of items
             try {
@@ -74,7 +74,7 @@ public class CSVReaderAndValidation {
      * @return number of lines in file
      * @throws IOException thrown if file not found
      */
-    int lineCounter(String filePath) throws IOException {
+    public int lineCounter(String filePath) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
         int fileLines = 0;
         while ((bufferedReader.readLine()) != null) {
@@ -88,9 +88,10 @@ public class CSVReaderAndValidation {
      *
      * @param arr input array
      */
-    void stringArrayTrimmingLowerCasing(String[] arr) {
+    public String[] stringArrayTrimmingLowerCasing(String[] arr) {
         for (int j = 0; j < arr.length; j++) {
             arr[j] = arr[j].trim().toLowerCase(Locale.ROOT);
         }
+        return arr;
     }
 }

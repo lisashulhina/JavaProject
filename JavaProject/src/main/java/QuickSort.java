@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-// Java program for implementation of QuickSort
+// Java class for implementation of QuickSort
 class QuickSort {
     /* This function takes last element as pivot,
        places the pivot element at its correct
@@ -39,17 +39,18 @@ class QuickSort {
      * @param arr ArrayList to be passed to sortCall function
      */
     public void sort(ArrayList<Item> arr) {
-        sortCall(arr, 0, arr.size() - 1);
+        sort(arr, 0, arr.size() - 1);
     }
 
     /**
      * The main function that implements QuickSort()
+     * Overloaded (same name, different number of arguments) the sort function with the same name.
      *
      * @param arr  ArrayList to be sorted
      * @param low  Starting index
      * @param high Ending index
      */
-    private void sortCall(ArrayList<Item> arr, int low, int high) {
+    private void sort(ArrayList<Item> arr, int low, int high) {
         if (low < high) {
             /* pi is partitioning index, arr.get(pi) is
               now at right place */
@@ -57,8 +58,8 @@ class QuickSort {
 
             // Recursively sort elements before
             // partition and after partition
-            sortCall(arr, low, pi - 1);
-            sortCall(arr, pi + 1, high);
+            sort(arr, low, pi - 1);
+            sort(arr, pi + 1, high);
         }
     }
 }
