@@ -25,3 +25,9 @@ to make changes to the file and try again.
 In the end, it prints you itemNumbers of each valid element in sorted form. 
 If you also want all attributes to be printed, uncomment 2 functions call 
 printArrayItem(list) in main;
+
+There is 2 testing files under project directory. 
+First: JavaProject/src/main/java/Items.csv
+Contains 1 header + 7 record (2 invalid: one missing value, 1 data type mismatch)
+Second: JavaProject/src/main/java/Items2.csv
+Contains 1 header + 15 records (all valid)
