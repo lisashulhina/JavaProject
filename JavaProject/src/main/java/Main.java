@@ -36,12 +36,12 @@ public class Main {
                 // printArrayItem(list); // if you want each item attribute to be printed uncomment this code
 
                 // asking if more than 1 file wanted to be proceed
-                System.out.println("\nDo you want to enter another file? ");
+                System.out.println("\nDo you want to input another file? ");
                 flag = tryAgain(sc, flag);
 
             } catch (IOException e) {
                 System.out.println("Error occurred. Message: " + e.getMessage());
-                System.out.println("Do you want to try input again?");
+                System.out.println("Do you want to try to input again?");
 
                 flag = tryAgain(sc, flag);
             }
