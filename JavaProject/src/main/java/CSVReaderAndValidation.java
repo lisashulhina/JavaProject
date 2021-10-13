@@ -33,38 +33,52 @@ public class CSVReaderAndValidation {
 
         for (int i = 0; i < fileLines - 1; i++) {
 
-            // creating list of string for each line
+            // creating list of strings for each line
             String[] line = csvReader.readNext();
-            // trimming and lowering each element  of the list
+
+            // trimming and lowering each element of the list
             line = stringArrayTrimmingLowerCasing(line);
 
             //adding elements to the list of items
-            try {
-                list.add(
-                        new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("item_number".toLowerCase(Locale.ROOT)))),
-                        Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("quantity".toLowerCase(Locale.ROOT)))),
-                        Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("bin_num".toLowerCase(Locale.ROOT)))),
-                        Boolean.parseBoolean(Arrays.asList(line).get(Arrays.asList(header).indexOf("in_stock".toLowerCase(Locale.ROOT))))
-                        , Arrays.asList(line).get(Arrays.asList(header).indexOf("name".toLowerCase(Locale.ROOT)))
-                        , Double.parseDouble(Arrays.asList(line).get(Arrays.asList(header).indexOf("price".toLowerCase(Locale.ROOT))))));
-            } catch (Exception e) {
-                System.out.println("Record " + (i + 1) + " is not in valid format and it was dropped from list.");
-                if (line.length != 6) {
-                    System.out.println("Expected number of record in line: 6\nGiven number of record in line: " + line.length + "\n");
-                } else {
-                    System.out.println("Error occurred. Probably of input mismatching. Message: " + e.getMessage() + "\n");
-                }
-
-                Scanner sc = new Scanner(System.in);
-                System.out.println("Would you like to continue?");
-                System.out.println("N/No for no, any other to continue.");
-                String wantToContinue = sc.nextLine();
-                if (wantToContinue.toLowerCase(Locale.ROOT).equals("no") || wantToContinue.toLowerCase(Locale.ROOT).equals("n")) {
-                    System.exit(0);
-                }
-            }
+            addToList(list, line, header, i);
         }
         return list;
+    }
+
+    /**
+     * This function adds Item elements to the list
+     *
+     * @param list   list to which we add element
+     * @param line   line from file we need to add to list
+     * @param header list of headers
+     * @param i      iterator for record number
+     */
+    public void addToList(ArrayList<Item> list, String[] line, String[] header, int i) {
+        try {
+            list.add(
+                    new Item(Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("item_number".toLowerCase(Locale.ROOT)))),
+                            Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("quantity".toLowerCase(Locale.ROOT)))),
+                            Integer.parseInt(Arrays.asList(line).get(Arrays.asList(header).indexOf("bin_num".toLowerCase(Locale.ROOT)))),
+                            Boolean.parseBoolean(Arrays.asList(line).get(Arrays.asList(header).indexOf("in_stock".toLowerCase(Locale.ROOT))))
+                            , Arrays.asList(line).get(Arrays.asList(header).indexOf("name".toLowerCase(Locale.ROOT)))
+                            , Double.parseDouble(Arrays.asList(line).get(Arrays.asList(header).indexOf("price".toLowerCase(Locale.ROOT))))));
+        } catch (Exception e) {
+            System.out.println("Record " + (i + 1) + " is not in valid format and it was dropped from list.");
+            if (line.length != 6) {
+                System.out.println("Expected number of record in line: 6\nGiven number of record in line: " + line.length + "\n");
+            } else {
+                System.out.println("Error occurred. Probably of input mismatching. Message: " + e.getMessage() + "\n");
+            }
+
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Would you like to continue?");
+            System.out.println("N/No for no (exits the program to let you make changes to the file), any other to continue.");
+            String wantToContinue = sc.nextLine();
+            if (wantToContinue.toLowerCase(Locale.ROOT).equals("no") || wantToContinue.toLowerCase(Locale.ROOT).equals("n")) {
+                System.exit(0);
+            }
+        }
+
     }
 
     /**
