@@ -2,13 +2,14 @@
 
 This is a Java Project for the QuickSort algorithm. 
 In order to run it in IDEA, you need to download (checkout) 
-it from this directory and open it in any Java IDEA (preferably IntelliJ IDEA).
+it from this directory and open it in any Java IDEA 
+(preferably IntelliJ IDEA or Eclipse).
 
 When you open the project in IDEA you need to mark this project as 
 a "Maven project". If you are using IntelliJ IDEA it would do it for 
-you by clicking "Trust this project". You need to make sure you are 
-connected to the Internet because Maven uses it. Then you can run it 
-and see how it works.
+you by clicking "Trust this project". Then run 'Maven update' on the project.
+You need to make sure you are connected to the Internet because Maven uses it. 
+Then you can run Main.java and see how it all works together.
 
 The first thing you will notice is a message 'Please enter absolute 
 file path on your own computer for file for what you want to proceed:'. 
