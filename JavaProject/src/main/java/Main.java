@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -17,6 +19,9 @@ public class Main {
                 System.out.println("\nPlease enter absolute file path on your own computer for file for what you want to proceed:");
                 String inputFilePath = sc.nextLine();
 
+                // starts counting time
+                Instant start = Instant.now();
+
                 // reads file
                 CSVReaderAndValidation csvReaderAndValidation = new CSVReaderAndValidation();
                 list = csvReaderAndValidation.readCSV(inputFilePath);
@@ -34,6 +39,11 @@ public class Main {
                 System.out.println("\nSorted list:");
                 printArrayItemNumber(list);
                 // printArrayItem(list); // if you want each item attribute to be printed uncomment this code
+
+                // prints time for one complete process
+                Instant finish = Instant.now();
+                long timeElapsed = Duration.between(start, finish).toMillis();
+                System.out.println("\nTime spent: " +timeElapsed + " milliseconds.");
 
                 // asking if more than 1 file wanted to be proceed
                 System.out.println("\nDo you want to input another file? ");
